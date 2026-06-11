@@ -33,6 +33,10 @@
         <span class="brand-tag">Smart Citizen Service Center &middot; Star Consultancy</span>
       </span>
     </a>
+    <div style="display:flex;align-items:center;gap:4px">
+    <button class="search-btn" aria-label="Search" onclick="openSearch()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
     <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.main-nav').classList.toggle('open')">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
@@ -41,9 +45,11 @@
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
       <a href="token.html">Get Token</a>
+      <a href="enquiry.html">Enquiry</a>
       <a href="contact.html">Contact</a>
       <a class="nav-cta" href="https://wa.me/919688885070">WhatsApp Us</a>
     </nav>
+    </div>
   </div>
 </header>
 <section class="page-hero">
@@ -90,6 +96,7 @@
         <a href="services.html">All Services</a>
         <a href="about.html">About Us</a>
         <a href="token.html">Get Token</a>
+        <a href="enquiry.html">Send Enquiry</a>
         <a href="contact.html">Contact</a>
       </div>
       <div>
@@ -118,8 +125,48 @@
 <a class="wa-float" href="https://wa.me/919688885070" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4.2 28l6.3-2c2 1.1 4.2 1.7 6.5 1.7 6.6 0 12-5.3 12-11.9C29 8.3 22.6 3 16 3zm0 21.8c-2 0-4-.5-5.7-1.6l-.4-.2-3.7 1.2 1.2-3.6-.3-.4c-1.2-1.7-1.9-3.8-1.9-5.9C5.2 9.5 10 4.8 16 4.8s10.8 4.7 10.8 10.5S22 24.8 16 24.8zm5.4-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.4-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
 </a>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-head">
+      <input id="searchInput" placeholder="Search 30+ services… e.g. PAN, Aadhaar, GST, EB, Licence" autocomplete="off">
+      <button class="search-close" aria-label="Close" onclick="closeSearch()">&#10005;</button>
+    </div>
+    <div id="searchResults" class="search-results"><p class="search-hint">Type to search services and pages…</p></div>
+  </div>
+</div>
+<div class="mob-bar">
+  <a href="tel:+919688885070">&#128222; Call</a>
+  <a href="enquiry.html">&#128221; Enquiry</a>
+  <a class="mb-wa" href="https://wa.me/919688885070">&#128172; WhatsApp</a>
+</div>
 <script>
 document.querySelectorAll('.main-nav a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.main-nav').classList.remove('open');});});
+var SEARCH_INDEX = [{"t": "Aadhaar Services", "d": "Aadhaar enrolment, demographic update, mobile linking and download support.", "c": "Identity & Cards", "i": "🪪", "k": "aadhar adhar uid update enrolment biometric mobile link", "u": "services.html?q=Aadhaar+Services"}, {"t": "PAN Card", "d": "New PAN, duplicate, corrections and reprints via NSDL / UTIITSL.", "c": "Identity & Cards", "i": "💳", "k": "pancard nsdl utiitsl income tax correction duplicate", "u": "services.html?q=PAN+Card"}, {"t": "ABHA Health Card", "d": "Ayushman Bharat Health Account (ABHA) creation and download.", "c": "Identity & Cards", "i": "🏥", "k": "ayushman bharat health abha", "u": "services.html?q=ABHA+Health+Card"}, {"t": "e-Shram Card", "d": "e-SHRAM registration for unorganised-sector workers.", "c": "Identity & Cards", "i": "👷", "k": "eshram shram labour worker unorganised", "u": "services.html?q=e-Shram+Card"}, {"t": "Insurance Cards", "d": "Insurance card application and renewal assistance.", "c": "Identity & Cards", "i": "🛡️", "k": "insurance policy renewal", "u": "services.html?q=Insurance+Cards"}, {"t": "Birth Certificate", "d": "New birth certificate, corrections and extracts.", "c": "Certificates", "i": "👶", "k": "birth pirappu correction extract", "u": "services.html?q=Birth+Certificate"}, {"t": "Death Certificate", "d": "Death certificate application and certified extracts.", "c": "Certificates", "i": "🕊️", "k": "death extract", "u": "services.html?q=Death+Certificate"}, {"t": "Community Certificate", "d": "Caste / community certificate application support.", "c": "Certificates", "i": "👪", "k": "caste community jaathi jathi", "u": "services.html?q=Community+Certificate"}, {"t": "Income Certificate", "d": "Income certificate for scholarships and welfare schemes.", "c": "Certificates", "i": "💰", "k": "income varumanam scholarship scheme", "u": "services.html?q=Income+Certificate"}, {"t": "OBC Certificate", "d": "OBC non-creamy layer certificate assistance.", "c": "Certificates", "i": "📜", "k": "obc non creamy layer", "u": "services.html?q=OBC+Certificate"}, {"t": "Legal Heir Certificate", "d": "Legal heir certificate consulting and application.", "c": "Certificates", "i": "⚖️", "k": "legal heir varisu succession", "u": "services.html?q=Legal+Heir+Certificate"}, {"t": "Life Certificate", "d": "Jeevan Pramaan digital life certificate for pensioners.", "c": "Certificates", "i": "❤️", "k": "jeevan pramaan pension pensioner life", "u": "services.html?q=Life+Certificate"}, {"t": "General Certificates", "d": "Domicile, residence, nativity and other certificates.", "c": "Certificates", "i": "📄", "k": "domicile residence nativity certificate", "u": "services.html?q=General+Certificates"}, {"t": "Lost Marksheet", "d": "Duplicate mark sheets and degree certificates.", "c": "Certificates", "i": "🎓", "k": "marksheet mark sheet duplicate degree lost", "u": "services.html?q=Lost+Marksheet"}, {"t": "GST Services", "d": "GST registration, amendments and return filing help.", "c": "Business & Tax", "i": "🧾", "k": "gst tax return filing registration amendment", "u": "services.html?q=GST+Services"}, {"t": "FSSAI Food Licence", "d": "Food business registration and licence renewal.", "c": "Business & Tax", "i": "🍔", "k": "fssai food license hotel shop business", "u": "services.html?q=FSSAI+Food+Licence"}, {"t": "EPFO Claims", "d": "EPF withdrawal, transfer and KYC update assistance.", "c": "Business & Tax", "i": "🏦", "k": "epf pf provident fund withdrawal transfer uan kyc", "u": "services.html?q=EPFO+Claims"}, {"t": "Firm / Company Registration", "d": "Business and proprietorship registration consulting.", "c": "Business & Tax", "i": "🏢", "k": "company firm business registration msme udyam proprietorship", "u": "services.html?q=Firm+/+Company+Registration"}, {"t": "Farmer Registration", "d": "Farmer registration and government scheme enrolment.", "c": "Business & Tax", "i": "🌾", "k": "farmer uzhavar agriculture kisan scheme", "u": "services.html?q=Farmer+Registration"}, {"t": "Patta / Chitta", "d": "Patta application, transfer and status tracking.", "c": "Land & Utilities", "i": "🗺️", "k": "patta chitta land document survey transfer", "u": "services.html?q=Patta+/+Chitta"}, {"t": "TNEB / TANGEDCO", "d": "New electricity connection and name change applications.", "c": "Land & Utilities", "i": "⚡", "k": "tneb eb electricity current tangedco connection name change", "u": "services.html?q=TNEB+/+TANGEDCO"}, {"t": "Ration Card", "d": "New ration card, member addition and address change.", "c": "Land & Utilities", "i": "🍚", "k": "ration smart card pds member addition address", "u": "services.html?q=Ration+Card"}, {"t": "Driving Licence", "d": "Learner licence, new DL, renewal and duplicates.", "c": "Vehicle & Police", "i": "🚗", "k": "driving license dl ll learner renewal rto", "u": "services.html?q=Driving+Licence"}, {"t": "RC Book Services", "d": "RC transfer, duplicate, hypothecation add / remove.", "c": "Vehicle & Police", "i": "📘", "k": "rc book vehicle transfer duplicate hypothecation rto", "u": "services.html?q=RC+Book+Services"}, {"t": "Police Verification", "d": "Police verification certificate and PCC support.", "c": "Vehicle & Police", "i": "👮", "k": "police pcc clearance verification", "u": "services.html?q=Police+Verification"}, {"t": "TNPSC & Govt Exams", "d": "Online applications for TNPSC and all government exams.", "c": "Exams & Online", "i": "📝", "k": "tnpsc exam government job group apply hall ticket", "u": "services.html?q=TNPSC+%26+Govt+Exams"}, {"t": "NEET / JEE Exams", "d": "NEET, JEE and other student exam application help.", "c": "Exams & Online", "i": "🩺", "k": "neet jee exam student application hall ticket", "u": "services.html?q=NEET+/+JEE+Exams"}, {"t": "All Government Online Services", "d": "Every e-District, central and state online service.", "c": "Exams & Online", "i": "🌐", "k": "edistrict e-district online egov all services", "u": "services.html?q=All+Government+Online+Services"}, {"t": "Designing & Printing", "d": "Forms, ID cards, flyers — professional design and print.", "c": "Printing & Design", "i": "🖨️", "k": "print printing design xerox copy flyer id card form", "u": "services.html?q=Designing+%26+Printing"}, {"t": "Binding & Lamination", "d": "Calico binding, spiral binding and lamination.", "c": "Printing & Design", "i": "📚", "k": "binding spiral calico lamination", "u": "services.html?q=Binding+%26+Lamination"}, {"t": "Send Enquiry", "d": "Request a callback — we reply with checklist and price", "c": "Page", "i": "📝", "k": "enquiry form lead contact callback", "u": "enquiry.html"}, {"t": "Get Token Online", "d": "Generate your queue token before you visit", "c": "Page", "i": "🎟️", "k": "token queue number", "u": "token.html"}, {"t": "Contact Us", "d": "Phone, WhatsApp, email, address and timings", "c": "Page", "i": "📞", "k": "phone address map location timing hours", "u": "contact.html"}, {"t": "About Star eSevai", "d": "Who we are and what we do", "c": "Page", "i": "ℹ️", "k": "about star consultancy kovaihub", "u": "about.html"}, {"t": "Refund & Cancellation Policy", "d": "Cancellation rules and refund timelines", "c": "Page", "i": "💸", "k": "refund cancel return money back", "u": "refund-policy.html"}, {"t": "Privacy Policy", "d": "How we protect your data", "c": "Page", "i": "🔒", "k": "privacy data", "u": "privacy-policy.html"}, {"t": "Terms & Conditions", "d": "Rules for using our services", "c": "Page", "i": "📋", "k": "terms conditions rules", "u": "terms-and-conditions.html"}, {"t": "Shipping & Delivery Policy", "d": "Document delivery and courier details", "c": "Page", "i": "📦", "k": "shipping delivery courier", "u": "shipping-policy.html"}];
+function openSearch(){
+  var o = document.getElementById('searchOverlay');
+  o.classList.add('open');
+  setTimeout(function(){ document.getElementById('searchInput').focus(); }, 60);
+}
+function closeSearch(){ document.getElementById('searchOverlay').classList.remove('open'); }
+document.getElementById('searchOverlay').addEventListener('click', function(e){ if (e.target === this) closeSearch(); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeSearch(); });
+document.getElementById('searchInput').addEventListener('input', function(){
+  var q = this.value.toLowerCase().trim();
+  var box = document.getElementById('searchResults');
+  if (!q) { box.innerHTML = '<p class="search-hint">Type to search services and pages…</p>'; return; }
+  var tokens = q.split(/\s+/);
+  var hits = SEARCH_INDEX.filter(function(it){
+    var hay = (it.t + ' ' + it.d + ' ' + it.c + ' ' + (it.k||'')).toLowerCase();
+    return tokens.every(function(t){ return hay.indexOf(t) > -1; });
+  }).slice(0, 12);
+  if (!hits.length) {
+    box.innerHTML = '<p class="search-hint">No match found. Try another word, or <a href="enquiry.html">send an enquiry</a> — we handle all government online services.</p>';
+    return;
+  }
+  box.innerHTML = hits.map(function(it){
+    return '<a class="sr-item" href="' + it.u + '"><span class="sr-ico">' + it.i + '</span><span><b>' + it.t + '</b><span>' + it.d + '</span></span></a>';
+  }).join('');
+});
 </script>
 </body>
 </html>
