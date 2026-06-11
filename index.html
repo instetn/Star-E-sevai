@@ -1,831 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Star eSevai - Professional Government Documentation Assistance in Coimbatore. Expert help with Aadhaar, PAN, GST, certificates, and all government services. Open 8:30 AM - 10:30 PM.">
-    <meta name="keywords" content="Government documentation, Aadhaar, PAN Card, GST registration, Certificates, Coimbatore">
-    <meta property="og:title" content="Star eSevai - Government Documentation Services">
-    <meta property="og:description" content="Professional assistance for all government certifications, registrations, and documents in Coimbatore.">
-    <meta property="og:type" content="business.business">
-    <title>Star eSevai - Professional Government Documentation Services</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --color-primary: #0071e3;
-            --color-text: #1d1d1f;
-            --color-text-secondary: #86868b;
-            --color-bg: #ffffff;
-            --color-bg-secondary: #f5f5f7;
-            --color-border: #d2d2d7;
-        }
-
-        html, body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            color: var(--color-text);
-            background: var(--color-bg);
-            line-height: 1.6;
-        }
-
-        /* ===== HEADER ===== */
-        header {
-            background: var(--color-bg);
-            border-bottom: 1px solid var(--color-border);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(20px);
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .header-content {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            height: 44px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--color-text);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--color-primary);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: var(--color-text);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--color-primary);
-        }
-
-        .btn-primary {
-            background: var(--color-primary);
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .btn-primary:hover {
-            background: #0a66d2;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 5rem 1rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -2px;
-            line-height: 1.1;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--color-text-secondary);
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--color-primary);
-            padding: 0.5rem 1.2rem;
-            border: 1.5px solid var(--color-primary);
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-secondary:hover {
-            background: var(--color-primary);
-            color: white;
-        }
-
-        /* ===== SERVICES SECTION ===== */
-        .services-section {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 4rem 1rem;
-        }
-
-        .section-heading {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle {
-            color: var(--color-text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            font-weight: 400;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .service-card {
-            background: var(--color-bg-secondary);
-            border-radius: 12px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--color-primary);
-            background: white;
-            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
-        }
-
-        .service-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.08);
-        }
-
-        .service-icon svg {
-            width: 70px;
-            height: 70px;
-        }
-
-        .service-name {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-            color: var(--color-text);
-        }
-
-        .service-category {
-            font-size: 0.85rem;
-            color: var(--color-text-secondary);
-        }
-
-        .service-docs {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-            opacity: 0;
-        }
-
-        .service-card:hover .service-docs {
-            max-height: 200px;
-            opacity: 1;
-        }
-
-        .docs-box {
-            background: var(--color-primary);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            text-align: left;
-        }
-
-        .docs-title {
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 0.6rem;
-            letter-spacing: 0.5px;
-            opacity: 0.95;
-        }
-
-        .docs-list {
-            list-style: none;
-            font-size: 0.8rem;
-            line-height: 1.8;
-        }
-
-        .docs-list li::before {
-            content: "✓ ";
-            font-weight: 700;
-            margin-right: 0.3rem;
-        }
-
-        /* ===== FEATURES SECTION ===== */
-        .features-section {
-            background: var(--color-bg-secondary);
-            padding: 5rem 1rem;
-            margin-top: 4rem;
-        }
-
-        .features-container {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-
-        .feature {
-            text-align: center;
-        }
-
-        .feature-icon-large {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature p {
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--color-bg);
-            border-top: 1px solid var(--color-border);
-            padding: 3rem 1rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-col h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--color-text);
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            margin-bottom: 0.5rem;
-            display: block;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover {
-            color: var(--color-primary);
-        }
-
-        .contact-info {
-            margin-bottom: 1rem;
-        }
-
-        .contact-info p {
-            font-size: 0.85rem;
-            margin-bottom: 0.3rem;
-            color: var(--color-text-secondary);
-        }
-
-        .contact-info strong {
-            color: var(--color-text);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid var(--color-border);
-            padding-top: 2rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--color-text-secondary);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            nav {
-                display: none;
-            }
-
-            .section-heading {
-                font-size: 1.6rem;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-
-            .btn-primary, .btn-secondary {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 3rem 1rem;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-        }
-
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-card {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .service-card:nth-child(1) { animation-delay: 0.05s; }
-        .service-card:nth-child(2) { animation-delay: 0.1s; }
-        .service-card:nth-child(3) { animation-delay: 0.15s; }
-        .service-card:nth-child(4) { animation-delay: 0.2s; }
-        .service-card:nth-child(5) { animation-delay: 0.25s; }
-        .service-card:nth-child(6) { animation-delay: 0.3s; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Star eSevai – One-Stop Government & Exam Services in Coimbatore | kovaihub.in</title>
+<meta name="description" content="Star eSevai (Star Consultancy), Coimbatore: trusted help for Aadhaar, PAN, GST, certificates, licences, TNPSC/NEET/JEE exam applications, printing & binding — all under one roof.">
+<link rel="canonical" href="https://www.kovaihub.in/index.html">
+<meta property="og:title" content="Star eSevai – One-Stop Government & Exam Services in Coimbatore | kovaihub.in">
+<meta property="og:description" content="Star eSevai (Star Consultancy), Coimbatore: trusted help for Aadhaar, PAN, GST, certificates, licences, TNPSC/NEET/JEE exam applications, printing & binding — all under one roof.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.kovaihub.in/index.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Star eSevai (Star Consultancy)","url":"https://www.kovaihub.in/","image":"https://www.kovaihub.in/img/logo.svg","telephone":"+91-96888-85070","email":"copy5070@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Nehru Nagar","addressLocality":"Coimbatore","postalCode":"641014","addressRegion":"Tamil Nadu","addressCountry":"IN"},"openingHours":"Mo-Su 10:00-22:00","areaServed":["Coimbatore","Tamil Nadu","India"],"description":"One-stop desk for government and exam services: Aadhaar, PAN, GST, certificates, licences, exam applications, designing and printing."}</script>
 </head>
 <body>
-    <!-- HEADER -->
-    <header>
-        <div class="header-content">
-            <a href="#" class="logo">
-                <div class="logo-icon">★</div>
-                Star eSevai
-            </a>
-            <nav>
-                <a href="#services">Services</a>
-                <a href="#why">Why Us</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <button class="btn-primary" onclick="document.querySelector('.services-section').scrollIntoView({behavior:'smooth'})">Get Help</button>
-        </div>
-    </header>
+<div class="topbar">
+  <div class="container">
+    <span class="tb-item">&#128205; Nehru Nagar, Coimbatore &ndash; 641014</span>
+    <span class="tb-item">&#128222; <a href="tel:+919688885070">96888 85070</a> &nbsp;&middot;&nbsp; &#9993;&#65039; <a href="mailto:copy5070@gmail.com">copy5070@gmail.com</a> &nbsp;&middot;&nbsp; Open Daily 10 AM &ndash; 10 PM</span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img class="logo" src="img/logo.svg" alt="Star eSevai logo">
+      <span>
+        <span class="brand-name">Star <span>eSevai</span></span><br>
+        <span class="brand-tag">Smart Citizen Service Center &middot; Star Consultancy</span>
+      </span>
+    </a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="token.html">Get Token</a>
+      <a href="contact.html">Contact</a>
+      <a class="nav-cta" href="https://wa.me/919688885070">WhatsApp Us</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="container">
+    <div>
+      <h1>Your One-Stop Desk for <em>Government &amp; Exam Services</em></h1>
+      <p class="lead">Trusted assistance for Aadhaar, PAN, GST, certificates, licences, exam applications and every government online service — quick, accurate and secure, all under one roof in Coimbatore.</p>
+      <div class="hero-badges">
+        <span>✔ 30+ Services</span><span>✔ Same-day Processing*</span><span>✔ Secure Payments</span><span>✔ Tamil &amp; English Support</span>
+      </div>
+      <a class="btn" href="services.html">Browse All Services</a>&nbsp;&nbsp;
+      <a class="btn btn-outline" href="token.html">Get Token Online</a>
+    </div>
+    <div class="hero-art"><img src="img/hero-illustration.svg" alt="Document services illustration"></div>
+  </div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Professional Government<br>Documentation Services</h1>
-        <p>Expert assistance for all your government certifications, registrations, and applications</p>
-        <div class="hero-cta">
-            <button class="btn-primary" onclick="document.querySelector('.services-section').scrollIntoView({behavior:'smooth'})">Explore Services</button>
-            <button class="btn-secondary" onclick="alert('📞 Call us: 96888-85070\n⏰ Mon-Sat: 8:30 AM - 10:30 PM\n📍 Coimbatore, Tamil Nadu')">Contact Us</button>
-        </div>
-    </section>
+<section class="stats">
+  <div class="container">
+    <div class="stat"><b>30+</b><small>Services Offered</small></div>
+    <div class="stat"><b>1000s</b><small>Applications Processed</small></div>
+    <div class="stat"><b>7 Days</b><small>Open 10 AM &ndash; 10 PM</small></div>
+    <div class="stat"><b>100%</b><small>Secure &amp; Confidential</small></div>
+  </div>
+</section>
 
-    <!-- SERVICES -->
-    <section class="services-section" id="services">
-        <h2 class="section-heading">Our Services</h2>
-        <p class="section-subtitle">Expert guidance for government document applications & registrations</p>
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">What we do</span>
+      <h2>Popular Services</h2>
+      <p>From identity documents to exam applications — we help you complete it correctly the first time.</p>
+    </div>
+    <div class="svc-grid">
+<div class="svc-card"><div class="svc-icon">🪪</div><h3>Aadhaar Services</h3><p>Aadhaar enrolment, demographic update, mobile linking and download support.</p><a class="svc-link" href="contact.html">Get help &rarr;</a></div>
+<div class="svc-card"><div class="svc-icon">💳</div><h3>PAN Card</h3><p>New PAN, duplicate, corrections and reprints via NSDL / UTIITSL.</p><a class="svc-link" href="contact.html">Get help &rarr;</a></div>
+<div class="svc-card"><div class="svc-icon">🏥</div><h3>ABHA Health Card</h3><p>Ayushman Bharat Health Account (ABHA) creation and download.</p><a class="svc-link" href="contact.html">Get help &rarr;</a></div>
+<div class="svc-card"><div class="svc-icon">👷</div><h3>e-Shram Card</h3><p>e-SHRAM registration for unorganised-sector workers.</p><a class="svc-link" href="contact.html">Get help &rarr;</a></div>
+<div class="svc-card"><div class="svc-icon">🛡️</div><h3>Insurance Cards</h3><p>Insurance card application and renewal assistance.</p><a class="svc-link" href="contact.html">Get help &rarr;</a></div>
+<div class="svc-card"><div class="svc-icon">👶</div><h3>Birth Certificate</h3><p>New birth certificate, corrections and extracts.</p><a class="svc-link" href="contact.html">Get help &rarr;</a></div>
+<div class="svc-card"><div class="svc-icon">🕊️</div><h3>Death Certificate</h3><p>Death certificate application and certified extracts.</p><a class="svc-link" href="contact.html">Get help &rarr;</a></div>
+<div class="svc-card"><div class="svc-icon">👪</div><h3>Community Certificate</h3><p>Caste / community certificate application support.</p><a class="svc-link" href="contact.html">Get help &rarr;</a></div>
+    </div>
+    <p class="center mt-30"><a class="btn btn-blue" href="services.html">View All 30+ Services →</a></p>
+  </div>
+</section>
 
-        <div class="services-grid">
-            <!-- AADHAAR -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="30" y="40" width="140" height="120" rx="8" fill="#0071e3" opacity="0.1" stroke="#0071e3" stroke-width="2"/>
-                        <text x="100" y="75" font-size="24" font-weight="bold" text-anchor="middle" fill="#0071e3">UID</text>
-                        <circle cx="100" cy="115" r="8" fill="#0071e3"/>
-                        <circle cx="100" cy="145" r="8" fill="#0071e3"/>
-                        <line x1="70" y1="115" x2="130" y2="115" stroke="#0071e3" stroke-width="2"/>
-                        <line x1="70" y1="145" x2="130" y2="145" stroke="#0071e3" stroke-width="2"/>
-                    </svg>
-                </div>
-                <div class="service-name">Aadhaar</div>
-                <div class="service-category">Identity Registration</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>Birth Certificate</li>
-                            <li>Address Proof</li>
-                            <li>Mobile Number</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">How it works</span>
+      <h2>Simple 4-Step Process</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Contact or Visit</h3><p>Call, WhatsApp or walk in. Tell us what you need — we confirm the requirements and the exact price.</p></div>
+      <div class="step"><div class="num">2</div><h3>Share Documents</h3><p>Provide the required documents in person or digitally. We verify everything before submission.</p></div>
+      <div class="step"><div class="num">3</div><h3>We Process It</h3><p>Our experienced staff file your application on the official portal and pay any portal fees needed.</p></div>
+      <div class="step"><div class="num">4</div><h3>Receive &amp; Track</h3><p>Get your acknowledgement instantly and the final document by email, WhatsApp, pickup or courier.</p></div>
+    </div>
+  </div>
+</section>
 
-            <!-- PAN -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="30" y="40" width="140" height="100" rx="6" fill="#0071e3" opacity="0.15" stroke="#0071e3" stroke-width="2.5"/>
-                        <text x="100" y="70" font-size="20" font-weight="bold" text-anchor="middle" fill="#0071e3">PAN</text>
-                        <line x1="40" y1="85" x2="160" y2="85" stroke="#0071e3" stroke-width="1.5"/>
-                        <text x="50" y="105" font-size="12" fill="#0071e3">XXXXX0000X</text>
-                    </svg>
-                </div>
-                <div class="service-name">PAN Card</div>
-                <div class="service-category">Tax Registration</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>Passport/DL</li>
-                            <li>Address Proof</li>
-                            <li>Form 49AA</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Why Star eSevai</span>
+      <h2>Why Customers Trust Us</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="w-icon">🎯</div><h3>Right the First Time</h3><p>Experienced staff who handle government portals daily — fewer rejections, faster approvals.</p></div>
+      <div class="why-card"><div class="w-icon">🔒</div><h3>Secure &amp; Confidential</h3><p>Your documents and personal data are used only for your requested service. Payments via secure gateways.</p></div>
+      <div class="why-card"><div class="w-icon">💬</div><h3>Clear Pricing</h3><p>Service fee and government portal fee confirmed up front — no surprises, receipts for every payment.</p></div>
+      <div class="why-card"><div class="w-icon">🏪</div><h3>Everything Under One Roof</h3><p>Identity cards, certificates, taxes, vehicle services, exams, printing and binding in one visit.</p></div>
+      <div class="why-card"><div class="w-icon">🗣️</div><h3>Tamil &amp; English Support</h3><p>Friendly assistance in the language you are comfortable with.</p></div>
+      <div class="why-card"><div class="w-icon">⚡</div><h3>Fast Turnaround</h3><p>Most online services completed same day to 3 working days; printing usually same day.</p></div>
+    </div>
+  </div>
+</section>
 
-            <!-- VOTER ID -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 50 60 L 100 30 L 150 60 L 150 140 Q 150 150 140 150 L 60 150 Q 50 150 50 140 Z" fill="#0071e3" opacity="0.15" stroke="#0071e3" stroke-width="2"/>
-                        <circle cx="100" cy="85" r="15" fill="#0071e3" stroke="#0071e3" stroke-width="2"/>
-                        <path d="M 80 110 Q 80 100 100 100 Q 120 100 120 110" fill="none" stroke="#0071e3" stroke-width="2"/>
-                    </svg>
-                </div>
-                <div class="service-name">Voter ID</div>
-                <div class="service-category">Voting Registration</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>Citizenship Proof</li>
-                            <li>Address Proof</li>
-                            <li>ID Proof</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+<section class="section alt" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Are you a government office?</summary><div class="faq-body">No. Star eSevai (Star Consultancy) is a private service facilitator. We assist you in preparing and submitting applications on official government portals; approval always rests with the respective department.</div></details>
+      <details><summary>What do your charges include?</summary><div class="faq-body">Our price includes a service/facilitation fee plus any government portal fee applicable to your application. The full amount is confirmed with you before we start.</div></details>
+      <details><summary>How long does processing take?</summary><div class="faq-body">Online services typically take same day to 3 working days from our side. Final approval time depends on the government department concerned.</div></details>
+      <details><summary>Can I get a refund if I cancel?</summary><div class="faq-body">Cancellation before we begin processing is usually possible. Once submission has started, government portal fees are non-refundable. See our <a href="refund-policy.html">Refund &amp; Cancellation Policy</a> for details.</div></details>
+      <details><summary>How do I receive my documents?</summary><div class="faq-body">Digital copies by email/WhatsApp, physical collection at our office, or courier anywhere in India on request (charges apply).</div></details>
+    </div>
+  </div>
+</section>
 
-            <!-- GST -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="40" y="45" width="120" height="110" rx="6" fill="#0071e3" opacity="0.15" stroke="#0071e3" stroke-width="2"/>
-                        <text x="100" y="85" font-size="32" font-weight="bold" text-anchor="middle" fill="#0071e3">₹</text>
-                        <line x1="50" y1="105" x2="150" y2="105" stroke="#0071e3" stroke-width="2"/>
-                    </svg>
-                </div>
-                <div class="service-name">GST</div>
-                <div class="service-category">Business Tax</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>PAN Card</li>
-                            <li>Address Proof</li>
-                            <li>Bank Details</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BIRTH CERTIFICATE -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="45" y="45" width="110" height="110" rx="6" fill="#0071e3" opacity="0.15" stroke="#0071e3" stroke-width="2"/>
-                        <circle cx="100" cy="90" r="20" fill="#0071e3" opacity="0.4"/>
-                        <circle cx="100" cy="90" r="12" fill="#0071e3"/>
-                    </svg>
-                </div>
-                <div class="service-name">Birth Certificate</div>
-                <div class="service-category">Vital Registration</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>Hospital Details</li>
-                            <li>Parent ID Proof</li>
-                            <li>Address Proof</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DRIVING LICENSE -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="35" y="50" width="130" height="80" rx="8" fill="#0071e3" opacity="0.15" stroke="#0071e3" stroke-width="2"/>
-                        <text x="100" y="75" font-size="16" font-weight="bold" text-anchor="middle" fill="#0071e3">DL</text>
-                        <line x1="60" y1="105" x2="140" y2="105" stroke="#0071e3" stroke-width="1" opacity="0.5"/>
-                    </svg>
-                </div>
-                <div class="service-name">Driving License</div>
-                <div class="service-category">Vehicle License</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>Birth Certificate</li>
-                            <li>Address Proof</li>
-                            <li>Medical Certificate</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RATION CARD -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 50 60 L 150 60 L 150 140 Q 150 150 140 150 L 60 150 Q 50 150 50 140 Z" fill="#0071e3" opacity="0.15" stroke="#0071e3" stroke-width="2"/>
-                        <line x1="60" y1="80" x2="140" y2="80" stroke="#0071e3" stroke-width="1.5"/>
-                        <line x1="60" y1="100" x2="140" y2="100" stroke="#0071e3" stroke-width="1.5"/>
-                        <line x1="60" y1="120" x2="140" y2="120" stroke="#0071e3" stroke-width="1.5"/>
-                    </svg>
-                </div>
-                <div class="service-name">Ration Card</div>
-                <div class="service-category">Food Ration</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>Address Proof</li>
-                            <li>ID Proof</li>
-                            <li>Family Details</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- INCOME CERTIFICATE -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="40" y="45" width="120" height="110" rx="6" fill="#0071e3" opacity="0.15" stroke="#0071e3" stroke-width="2"/>
-                        <text x="100" y="85" font-size="24" font-weight="bold" text-anchor="middle" fill="#0071e3">₹</text>
-                        <line x1="50" y1="105" x2="150" y2="105" stroke="#0071e3" stroke-width="2"/>
-                    </svg>
-                </div>
-                <div class="service-name">Income Certificate</div>
-                <div class="service-category">Government Certificate</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>Address Proof</li>
-                            <li>ID Proof</li>
-                            <li>Income Documents</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RC BOOK -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="40" y="50" width="60" height="90" rx="4" fill="#0071e3" opacity="0.2" stroke="#0071e3" stroke-width="2"/>
-                        <rect x="105" y="50" width="55" height="90" rx="4" fill="#0071e3" opacity="0.15" stroke="#0071e3" stroke-width="2"/>
-                        <line x1="100" y1="50" x2="100" y2="140" stroke="#0071e3" stroke-width="2"/>
-                    </svg>
-                </div>
-                <div class="service-name">RC Book</div>
-                <div class="service-category">Vehicle Registration</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>Ownership Proof</li>
-                            <li>Insurance Paper</li>
-                            <li>ID Proof</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- POLICE VERIFICATION -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 100 40 L 130 60 L 130 110 Q 130 140 100 150 Q 70 140 70 110 L 70 60 Z" fill="#0071e3" opacity="0.15" stroke="#0071e3" stroke-width="2"/>
-                        <circle cx="100" cy="75" r="12" fill="#0071e3"/>
-                        <path d="M 85 95 L 95 105 L 115 85" fill="none" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <div class="service-name">Police Verification</div>
-                <div class="service-category">Character Certificate</div>
-                <div class="service-docs">
-                    <div class="docs-box">
-                        <div class="docs-title">Required:</div>
-                        <ul class="docs-list">
-                            <li>ID Proof</li>
-                            <li>Address Proof</li>
-                            <li>Application Form</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="features-section" id="why">
-        <div class="features-container">
-            <h2 class="section-heading">Why Choose Star eSevai</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <div class="feature-icon-large">⭐</div>
-                    <h3>Expert Team</h3>
-                    <p>Highly trained professionals with years of government services experience</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon-large">⚡</div>
-                    <h3>Fast Processing</h3>
-                    <p>Quick application preparation & submission help</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon-large">💰</div>
-                    <h3>Affordable Pricing</h3>
-                    <p>Transparent pricing with no hidden charges</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon-large">✓</div>
-                    <h3>Accuracy Focus</h3>
-                    <p>Careful documentation review to prevent rejections</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon-large">📍</div>
-                    <h3>Easy Location</h3>
-                    <p>Convenient office for walk-ins and consultations</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon-large">📞</div>
-                    <h3>24/7 Support</h3>
-                    <p>Ready to answer your questions anytime</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">All Services</a></li>
-                        <li><a href="#services">Identity Documents</a></li>
-                        <li><a href="#services">Licenses & Permits</a></li>
-                        <li><a href="#services">Certificates</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Info</h4>
-                    <div class="contact-info">
-                        <p><strong>📞 Phone</strong><br><a href="tel:968888507" style="color: var(--color-primary);">96888 85070</a></p>
-                        <p style="margin-top: 1rem;"><strong>⏰ Hours</strong><br>Mon - Sat: 8:30 AM - 10:30 PM<br>Sunday: Closed</p>
-                        <p style="margin-top: 1rem;"><strong>📍 City</strong><br>Coimbatore, Tamil Nadu, India</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 Star eSevai. All rights reserved.</p>
-                <p style="margin-top: 0.5rem;">Star eSevai is a private documentation assistance firm. We help with government applications - final decisions are made by government departments.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-    </script>
+<section class="section">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h2>Need help with an application today?</h2>
+        <p>Call or WhatsApp us — we'll confirm the documents needed and the exact price in minutes.</p>
+      </div>
+      <div>
+        <a class="btn" href="tel:+919688885070">📞 Call 96888 85070</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main">
+      <div>
+        <div class="footer-brand"><img class="logo" src="img/logo.svg" alt=""><b>Star eSevai</b></div>
+        <p>One-stop desk for government &amp; exam services in Coimbatore. Aadhaar, PAN, GST, certificates, licences, exam applications, designing &amp; printing &mdash; all under one roof.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">All Services</a>
+        <a href="about.html">About Us</a>
+        <a href="token.html">Get Token</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="refund-policy.html">Refund &amp; Cancellation</a>
+        <a href="shipping-policy.html">Shipping &amp; Delivery</a>
+        <a href="merchant-info.html">Merchant Info</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>&#128205; Nehru Nagar, Coimbatore &ndash; 641014, Tamil Nadu<br>
+        &#128222; <a href="tel:+919688885070" style="display:inline">96888 85070</a><br>
+        &#9993;&#65039; <a href="mailto:copy5070@gmail.com" style="display:inline">copy5070@gmail.com</a><br>
+        &#128337; Open Daily: 10:00 AM &ndash; 10:00 PM<br>
+        &#11088; <a href="https://share.google/ul3ip0rDlUTow7jsG" style="display:inline">Find us on Google</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Star eSevai (Star Consultancy) &middot; kovaihub.in &mdash; All rights reserved.</span>
+      <span>We are a private service facilitator and not affiliated with any government department.</span>
+    </div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/919688885070" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4.2 28l6.3-2c2 1.1 4.2 1.7 6.5 1.7 6.6 0 12-5.3 12-11.9C29 8.3 22.6 3 16 3zm0 21.8c-2 0-4-.5-5.7-1.6l-.4-.2-3.7 1.2 1.2-3.6-.3-.4c-1.2-1.7-1.9-3.8-1.9-5.9C5.2 9.5 10 4.8 16 4.8s10.8 4.7 10.8 10.5S22 24.8 16 24.8zm5.4-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.4-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+<script>
+document.querySelectorAll('.main-nav a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.main-nav').classList.remove('open');});});
+</script>
 </body>
 </html>
