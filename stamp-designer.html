@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online Stamp Maker – Design Your Rubber Stamp Free | Star eSevai Coimbatore</title>
+<meta name="description" content="Design your own rubber stamp online free — round seals, oval seals, address stamps, GST stamps, doctor & notary stamps. 10 ready templates, live preview, instant download. Order from Star eSevai, Coimbatore.">
+<link rel="canonical" href="https://www.kovaihub.in/stamp-designer.html">
+<meta property="og:title" content="Online Stamp Maker – Design Your Rubber Stamp | Star eSevai">
+<meta property="og:description" content="Free online stamp designer with 10 templates. Design, preview and order your rubber stamp in Coimbatore.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.kovaihub.in/stamp-designer.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Online Rubber Stamp Design & Making","provider":{"@type":"LocalBusiness","name":"Star eSevai (Star Consultancy)","url":"https://www.kovaihub.in/","telephone":"+91-96888-85070","address":{"@type":"PostalAddress","addressLocality":"Coimbatore","postalCode":"641014","addressRegion":"Tamil Nadu","addressCountry":"IN"}},"areaServed":["Coimbatore","Tamil Nadu","India"],"description":"Design your own rubber stamp online with live preview and order for delivery in Coimbatore."}</script>
+<style>
+/* ============ Stamp Designer (scoped: sd-) ============ */
+.sd-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--indigo) 100%);color:#fff;padding:42px 0 34px;text-align:center}
+.sd-hero .kicker{color:var(--saffron);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:12px}
+.sd-hero h1{font-size:clamp(26px,4vw,40px);margin:8px 0 10px;font-weight:800}
+.sd-hero p{color:#cdd8f5;max-width:640px;margin:0 auto;font-size:15.5px}
+.sd-hero .badges{margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.sd-hero .badges span{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:5px 14px;font-size:12.5px;font-weight:500}
+
+.sd-app{display:grid;grid-template-columns:290px 1fr 310px;gap:16px;padding:22px 0 40px;align-items:start}
+@media(max-width:1050px){.sd-app{grid-template-columns:1fr}}
+.sd-col{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;max-height:none}
+@media(min-width:1051px){.sd-col{max-height:calc(100vh - 140px);overflow-y:auto;position:sticky;top:90px}}
+.sd-col h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--muted);margin:0 0 10px;padding-bottom:7px;border-bottom:1px solid var(--border)}
+.sd-sec{margin-bottom:20px}
+.sd-btn{font-family:inherit;font-size:13px;font-weight:600;border:1px solid var(--border);background:#fff;color:var(--text);padding:8px 14px;border-radius:9px;cursor:pointer;transition:.12s}
+.sd-btn:hover{border-color:var(--blue);color:var(--blue)}
+.sd-btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
+.sd-btn.primary:hover{background:var(--indigo)}
+.sd-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+.sd-tpl-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sd-tpl{border:1px solid var(--border);border-radius:10px;background:#fff;padding:8px 5px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;transition:.12s}
+.sd-tpl:hover{border-color:var(--blue);box-shadow:var(--shadow)}
+.sd-tpl svg{width:84px;height:62px}
+.sd-tpl div{font-size:11px;font-weight:600;text-align:center;line-height:1.25;color:var(--muted)}
+
+.sd-el-list{display:flex;flex-direction:column;gap:4px}
+.sd-el{display:flex;align-items:center;gap:8px;padding:7px 9px;border:1px solid var(--border);border-radius:9px;cursor:pointer;font-size:12.5px;background:#fff}
+.sd-el:hover{border-color:var(--blue)}
+.sd-el.active{border-color:var(--blue);background:#eef3fd}
+.sd-el .tag{font-size:9.5px;font-weight:600;color:var(--muted);border:1px solid var(--border);border-radius:5px;padding:1px 5px;flex-shrink:0;text-transform:uppercase}
+.sd-el .nm{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.3}
+.sd-el .del{border:none;background:none;padding:2px 5px;font-size:13px;color:var(--muted);cursor:pointer}
+.sd-el .del:hover{color:#c1121f}
+.sd-add{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.sd-add .sd-btn{font-size:11.5px;padding:6px 9px}
+
+.sd-app label{display:block;font-size:12px;font-weight:600;color:var(--text);margin:9px 0 3px}
+.sd-app input[type=text],.sd-app select{width:100%;padding:8px 10px;font-size:13.5px;font-family:inherit;border:1px solid var(--border);border-radius:9px;background:#fff;color:var(--text)}
+.sd-app input:focus,.sd-app select:focus{outline:2px solid var(--blue);outline-offset:-1px}
+.sd-app input[type=range]{width:100%;accent-color:var(--blue)}
+.sd-rv{font-size:10.5px;color:var(--muted);float:right;font-weight:500}
+.sd-row2{display:flex;gap:8px}.sd-row2>*{flex:1}
+.sd-check{display:flex;align-items:center;gap:7px;font-size:13px;margin-top:9px;cursor:pointer;font-weight:500}
+.sd-check input{width:15px;height:15px;accent-color:var(--blue)}
+.sd-empty{font-size:12.5px;color:var(--muted);line-height:1.5;padding:6px 0}
+.sd-colors{display:flex;gap:7px;flex-wrap:wrap}
+.sd-swatch{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;box-shadow:inset 0 0 0 2px #fff, var(--shadow);padding:0}
+.sd-swatch.active{border-color:var(--navy);transform:scale(1.1)}
+.sd-hint{font-size:11.5px;color:var(--muted);margin-top:7px;line-height:1.5}
+
+.sd-stage{display:flex;flex-direction:column;align-items:center}
+.sd-preview{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-lg);width:100%;display:flex;flex-direction:column;align-items:center;
+ background-image:repeating-linear-gradient(0deg,transparent,transparent 27px,#f0f3fa 28px),repeating-linear-gradient(90deg,transparent,transparent 27px,#f0f3fa 28px)}
+#sdWrap{width:min(430px,88vw);height:min(430px,88vw);display:flex;align-items:center;justify-content:center}
+#sdWrap svg{max-width:100%;max-height:100%}
+#sdWrap [data-i]{cursor:pointer}
+.sd-size-tag{margin-top:10px;text-align:center;font-size:11.5px;color:var(--muted);font-weight:500}
+.sd-dl-row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;justify-content:center}
+.sd-order{margin-top:14px;text-align:center;background:#eef9f0;border:1px solid #cdeed6;border-radius:12px;padding:12px 16px;font-size:13.5px;line-height:1.6;width:100%}
+.sd-order b{color:var(--green)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="container">
+    <span class="tb-item">&#128205; Nehru Nagar, Coimbatore &ndash; 641014</span>
+    <span class="tb-item">&#128222; <a href="tel:+919688885070">96888 85070</a> &nbsp;&middot;&nbsp; &#9993;&#65039; <a href="mailto:copy5070@gmail.com">copy5070@gmail.com</a> &nbsp;&middot;&nbsp; Open Daily 10 AM &ndash; 10 PM</span>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img class="logo" src="img/logo.svg" alt="Star eSevai logo">
+      <span>
+        <span class="brand-name">Star <span>eSevai</span></span><br>
+        <span class="brand-tag">Smart Citizen Service Center &middot; Star Consultancy</span>
+      </span>
+    </a>
+    <div style="display:flex;align-items:center;gap:4px">
+    <button class="search-btn" aria-label="Search" onclick="openSearch()">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.main-nav').classList.toggle('open')">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="token.html">Get Token</a>
+      <a href="stamp-designer.html" class="active">Stamp Maker</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+      <a class="nav-cta" href="https://wa.me/919688885070">WhatsApp Us</a>
+    </nav>
+    </div>
+  </div>
+</header>
+<section class="sd-hero">
+  <div class="container">
+    <span class="kicker">Free Online Tool</span>
+    <h1>Design Your Own Rubber Stamp</h1>
+    <p>Choose a template, click any part of the stamp to edit it, and download your design instantly. We manufacture and deliver your stamp anywhere in Coimbatore &amp; Tamil Nadu.</p>
+    <div class="badges"><span>✔ 10 Ready Templates</span><span>✔ Live Preview</span><span>✔ Free PNG &amp; SVG Download</span><span>✔ Same-day Making*</span></div>
+  </div>
+</section>
+
+<div class="container">
+<div class="sd-app">
+
+  <!-- LEFT: templates + elements -->
+  <aside class="sd-col">
+    <div class="sd-sec">
+      <h3>1 · Pick a Template</h3>
+      <div class="sd-tpl-grid" id="sdTplGrid"></div>
+    </div>
+    <div class="sd-sec">
+      <h3>2 · Elements <span style="float:right" id="sdElCount"></span></h3>
+      <div class="sd-el-list" id="sdElList"></div>
+      <div class="sd-add">
+        <button class="sd-btn" data-add="arcText">+ Curved text</button>
+        <button class="sd-btn" data-add="text">+ Text</button>
+        <button class="sd-btn" data-add="ring">+ Ring</button>
+        <button class="sd-btn" data-add="rect">+ Rectangle</button>
+        <button class="sd-btn" data-add="symbol">+ Symbol</button>
+        <button class="sd-btn" data-add="line">+ Line</button>
+      </div>
+      <p class="sd-hint">Tip: click any part of the stamp preview to select and edit it. 🗑 deletes an element.</p>
+    </div>
+  </aside>
+
+  <!-- CENTER: preview -->
+  <main class="sd-stage">
+    <div class="sd-preview">
+      <div id="sdWrap"></div>
+      <div class="sd-size-tag" id="sdSizeTag"></div>
+      <div class="sd-dl-row">
+        <button class="sd-btn" id="sdDlSvg">⬇ Download SVG</button>
+        <button class="sd-btn primary" id="sdDlPng">⬇ Download PNG</button>
+      </div>
+      <div class="sd-order">
+        <b>Want it as a real stamp?</b> Download your design and send it to us on
+        <a href="https://wa.me/919688885070?text=Hi%2C%20I%20designed%20a%20stamp%20on%20kovaihub.in%20—%20please%20share%20the%20price." target="_blank" rel="noopener"><b>WhatsApp 96888 85070</b></a>
+        — we'll confirm the price and make it the same day.*
+      </div>
+    </div>
+  </main>
+
+  <!-- RIGHT: properties -->
+  <aside class="sd-col">
+    <div class="sd-sec">
+      <h3>3 · Edit Selected Part</h3>
+      <div id="sdProps"><p class="sd-empty">Nothing selected yet. Click a part of the stamp or an item in the Elements list.</p></div>
+    </div>
+    <div class="sd-sec">
+      <h3>Stamp Settings</h3>
+      <label>Ink colour</label>
+      <div class="sd-colors" id="sdColors">
+        <button class="sd-swatch active" data-color="#1d3fbf" style="background:#1d3fbf" aria-label="Blue ink"></button>
+        <button class="sd-swatch" data-color="#5b2a86" style="background:#5b2a86" aria-label="Violet ink"></button>
+        <button class="sd-swatch" data-color="#c1121f" style="background:#c1121f" aria-label="Red ink"></button>
+        <button class="sd-swatch" data-color="#1a7a3a" style="background:#1a7a3a" aria-label="Green ink"></button>
+        <button class="sd-swatch" data-color="#1a1a1a" style="background:#1a1a1a" aria-label="Black ink"></button>
+      </div>
+      <label>Physical size <span class="sd-rv" id="sdMmVal">40 mm</span></label>
+      <input type="range" id="sdMm" min="25" max="60" value="40">
+      <label class="sd-check"><input type="checkbox" id="sdInkFx"> Realistic ink texture (preview / PNG only)</label>
+      <p class="sd-hint">SVG download is always clean — that's the file we use to manufacture your stamp.</p>
+    </div>
+  </aside>
+
+</div>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ==== Stamp Designer engine — 500×500 canvas, centre (250,250) ==== */
+var C=250;
+var FONTS=[["Arial","Arial, Helvetica, sans-serif"],["Times New Roman","'Times New Roman', Times, serif"],["Georgia","Georgia, serif"],["Verdana","Verdana, Geneva, sans-serif"],["Courier","'Courier New', monospace"],["Impact","Impact, sans-serif"]];
+var SYMS=["★","✦","●","◆","✱","•","§","⚖","✚","☎"];
+var els=[], sel=-1, color="#1d3fbf", mm=40, inkFx=false, tplName="Custom";
+
+var mk={
+ ring:function(o){return Object.assign({type:"ring",rx:225,ry:225,sw:6,dash:false},o||{});},
+ rect:function(o){return Object.assign({type:"rect",w:460,h:250,corner:10,sw:6},o||{});},
+ arcText:function(o){return Object.assign({type:"arcText",text:"YOUR TEXT HERE",rx:180,ry:180,fs:26,sp:2,bold:true,side:"top",font:FONTS[0][1]},o||{});},
+ text:function(o){return Object.assign({type:"text",text:"TEXT",x:0,y:0,fs:34,sp:2,bold:true,font:FONTS[0][1]},o||{});},
+ symbol:function(o){return Object.assign({type:"symbol",char:"★",x:-185,y:0,fs:28},o||{});},
+ line:function(o){return Object.assign({type:"line",x:0,y:0,len:240,sw:3,angle:0},o||{});}
+};
+
+var TPL=[
+{name:"Company Round",els:function(){return[
+ mk.ring({rx:225,ry:225,sw:7}),mk.ring({rx:150,ry:150,sw:3}),
+ mk.arcText({text:"YOUR COMPANY NAME HERE",rx:185,ry:185,fs:27}),
+ mk.arcText({text:"COIMBATORE - 641001",rx:180,ry:180,fs:25,side:"bottom"}),
+ mk.symbol({char:"★",x:-183,y:0,fs:28}),mk.symbol({char:"★",x:183,y:0,fs:28}),
+ mk.text({text:"AUTHORISED",y:-20,fs:32}),mk.text({text:"SIGNATORY",y:20,fs:32})];}},
+{name:"Double Ring Seal",els:function(){return[
+ mk.ring({rx:225,ry:225,sw:5}),mk.ring({rx:212,ry:212,sw:2}),mk.ring({rx:145,ry:145,sw:2}),
+ mk.arcText({text:"YOUR BUSINESS NAME",rx:180,ry:180,fs:27}),
+ mk.arcText({text:"TIRUPUR • TAMIL NADU",rx:176,ry:176,fs:24,side:"bottom"}),
+ mk.symbol({char:"✦",x:-178,y:0,fs:26}),mk.symbol({char:"✦",x:178,y:0,fs:26}),
+ mk.text({text:"PROPRIETOR",y:0,fs:34})];}},
+{name:"Notary Public",els:function(){return[
+ mk.ring({rx:225,ry:225,sw:6}),mk.ring({rx:150,ry:150,sw:2.5}),
+ mk.arcText({text:"R. KUMAR B.A., B.L.",rx:185,ry:185,fs:26}),
+ mk.arcText({text:"NOTARY PUBLIC • COIMBATORE",rx:180,ry:180,fs:24,side:"bottom"}),
+ mk.symbol({char:"⚖",x:0,y:-55,fs:46}),
+ mk.text({text:"GOVT. OF INDIA",y:20,fs:26}),mk.text({text:"REG No. 1234",y:58,fs:24})];}},
+{name:"Oval Seal",els:function(){return[
+ mk.ring({rx:240,ry:150,sw:6}),mk.ring({rx:160,ry:85,sw:2.5}),
+ mk.arcText({text:"YOUR ENTERPRISE NAME",rx:200,ry:114,fs:25}),
+ mk.arcText({text:"SINCE 2020",rx:196,ry:110,fs:22,side:"bottom"}),
+ mk.text({text:"APPROVED",y:0,fs:32})];}},
+{name:"Address Stamp",els:function(){return[
+ mk.rect({w:470,h:230,corner:8,sw:6}),
+ mk.text({text:"YOUR SHOP NAME",y:-70,fs:34}),
+ mk.text({text:"No. 12, Main Road, RS Puram",y:-15,fs:24,bold:false}),
+ mk.text({text:"Coimbatore - 641002",y:25,fs:24,bold:false}),
+ mk.text({text:"Ph: 98765 43210",y:65,fs:24,bold:false})];}},
+{name:"GST Rectangle",els:function(){return[
+ mk.rect({w:480,h:240,corner:6,sw:6}),
+ mk.text({text:"YOUR FIRM NAME",y:-75,fs:32}),
+ mk.line({y:-45,len:400,sw:2.5}),
+ mk.text({text:"GSTIN: 33ABCDE1234F1Z5",y:-10,fs:26}),
+ mk.text({text:"Coimbatore, Tamil Nadu - 641001",y:30,fs:22,bold:false}),
+ mk.text({text:"PROPRIETOR",y:75,fs:26})];}},
+{name:"RECEIVED / Date",els:function(){return[
+ mk.rect({w:420,h:190,corner:8,sw:7}),
+ mk.text({text:"RECEIVED",y:-40,fs:52}),
+ mk.line({y:5,len:340,sw:2.5}),
+ mk.text({text:"Date: ____ / ____ / 20____",y:45,fs:28,bold:false})];}},
+{name:"Doctor Stamp",els:function(){return[
+ mk.text({text:"Dr. YOUR NAME",y:-60,fs:36}),
+ mk.text({text:"M.B.B.S., M.D.",y:-18,fs:24,bold:false}),
+ mk.text({text:"Reg No: TN 45678",y:20,fs:24,bold:false}),
+ mk.line({y:50,len:380,sw:2.5}),
+ mk.text({text:"Consultant Physician",y:82,fs:23,bold:false})];}},
+{name:"Advocate Seal",els:function(){return[
+ mk.ring({rx:240,ry:150,sw:6}),
+ mk.arcText({text:"S. KUMAR B.A., B.L.",rx:200,ry:114,fs:26}),
+ mk.arcText({text:"ADVOCATE & NOTARY",rx:196,ry:110,fs:23,side:"bottom"}),
+ mk.symbol({char:"⚖",x:0,y:-8,fs:52}),
+ mk.text({text:"COIMBATORE",y:48,fs:24})];}},
+{name:"Trust / Society",els:function(){return[
+ mk.ring({rx:225,ry:225,sw:6}),mk.ring({rx:214,ry:214,sw:2}),mk.ring({rx:140,ry:140,sw:2.5}),
+ mk.arcText({text:"YOUR TRUST NAME HERE",rx:180,ry:180,fs:25}),
+ mk.arcText({text:"REGD. No. 123/2020 • COIMBATORE",rx:176,ry:176,fs:22,side:"bottom"}),
+ mk.symbol({char:"✚",x:-176,y:0,fs:26}),mk.symbol({char:"✚",x:176,y:0,fs:26}),
+ mk.text({text:"PRESIDENT",y:0,fs:32})];}}
+];
+
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+
+function elSVG(e,i){
+ var a='data-i="'+i+'"';
+ switch(e.type){
+  case "ring": return '<ellipse '+a+' cx="'+C+'" cy="'+C+'" rx="'+e.rx+'" ry="'+e.ry+'" fill="none" stroke-width="'+e.sw+'" '+(e.dash?'stroke-dasharray="10 7"':'')+' pointer-events="stroke"/>';
+  case "rect": return '<rect '+a+' x="'+(C-e.w/2)+'" y="'+(C-e.h/2)+'" width="'+e.w+'" height="'+e.h+'" rx="'+e.corner+'" fill="none" stroke-width="'+e.sw+'" pointer-events="stroke"/>';
+  case "arcText":
+   var id="sdArc"+i;
+   var d=e.side==="top"
+    ? "M "+(C-e.rx)+","+C+" A "+e.rx+","+e.ry+" 0 1 1 "+(C+e.rx)+","+C
+    : "M "+(C-e.rx)+","+C+" A "+e.rx+","+e.ry+" 0 1 0 "+(C+e.rx)+","+C;
+   return '<defs><path id="'+id+'" d="'+d+'" fill="none"/></defs><text '+a+' font-family="'+esc(e.font)+'" font-weight="'+(e.bold?700:400)+'" font-size="'+e.fs+'" letter-spacing="'+e.sp+'" stroke="none"><textPath href="#'+id+'" startOffset="50%" text-anchor="middle">'+esc(e.text)+'</textPath></text>';
+  case "text": return '<text '+a+' x="'+(C+e.x)+'" y="'+(C+e.y)+'" font-family="'+esc(e.font)+'" font-weight="'+(e.bold?700:400)+'" font-size="'+e.fs+'" letter-spacing="'+e.sp+'" text-anchor="middle" dominant-baseline="central" stroke="none">'+esc(e.text)+'</text>';
+  case "symbol": return '<text '+a+' x="'+(C+e.x)+'" y="'+(C+e.y)+'" font-size="'+e.fs+'" text-anchor="middle" dominant-baseline="central" stroke="none">'+esc(e.char)+'</text>';
+  case "line": return '<g '+a+' transform="rotate('+e.angle+' '+(C+e.x)+' '+(C+e.y)+')"><line x1="'+(C+e.x-e.len/2)+'" y1="'+(C+e.y)+'" x2="'+(C+e.x+e.len/2)+'" y2="'+(C+e.y)+'" stroke-width="'+e.sw+'" pointer-events="stroke"/></g>';
+ }
+ return "";
+}
+function inkFilter(){
+ return '<filter id="sdInk"><feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0" result="a"/><feComposite in="SourceGraphic" in2="a" operator="out"/></filter>';
+}
+function selOutline(){
+ var e=els[sel]; if(!e) return "";
+ var s='stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 5" fill="none" opacity="0.95"';
+ switch(e.type){
+  case "ring": return '<ellipse cx="'+C+'" cy="'+C+'" rx="'+(e.rx+e.sw/2+4)+'" ry="'+(e.ry+e.sw/2+4)+'" '+s+'/>';
+  case "rect": return '<rect x="'+(C-e.w/2-5)+'" y="'+(C-e.h/2-5)+'" width="'+(e.w+10)+'" height="'+(e.h+10)+'" rx="'+(e.corner+4)+'" '+s+'/>';
+  case "arcText": return '<ellipse cx="'+C+'" cy="'+C+'" rx="'+(e.rx+e.fs*0.7)+'" ry="'+(e.ry+e.fs*0.7)+'" '+s+'/>';
+  case "text": var w=e.text.length*e.fs*0.62+20;
+   return '<rect x="'+(C+e.x-w/2)+'" y="'+(C+e.y-e.fs*0.75)+'" width="'+w+'" height="'+(e.fs*1.5)+'" rx="4" '+s+'/>';
+  case "symbol": return '<circle cx="'+(C+e.x)+'" cy="'+(C+e.y)+'" r="'+(e.fs*0.8)+'" '+s+'/>';
+  case "line": return '<g transform="rotate('+e.angle+' '+(C+e.x)+' '+(C+e.y)+')"><rect x="'+(C+e.x-e.len/2-5)+'" y="'+(C+e.y-8)+'" width="'+(e.len+10)+'" height="16" rx="4" '+s+'/></g>';
+ }
+ return "";
+}
+function buildSVG(opt){
+ opt=opt||{};
+ var texture=("texture" in opt)?opt.texture:inkFx;
+ var highlight=("highlight" in opt)?opt.highlight:true;
+ var body=els.map(elSVG).join("\n");
+ var hl=(highlight&&sel>=0)?selOutline():"";
+ return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">'+(texture?inkFilter():"")+'<g '+(texture?'filter="url(#sdInk)"':'')+' fill="'+color+'" stroke="'+color+'">'+body+'</g>'+hl+'</svg>';
+}
+
+var NAMES={ring:"Ring",rect:"Rect",arcText:"Curve",text:"Text",symbol:"Sym",line:"Line"};
+function labelOf(e){
+ if(e.type==="arcText"||e.type==="text")return e.text||"(empty)";
+ if(e.type==="symbol")return e.char;
+ return e.type==="ring"?"Ring":e.type==="rect"?"Rectangle":"Line";
+}
+function render(){
+ $("sdWrap").innerHTML=buildSVG();
+ $("sdSizeTag").textContent=tplName+" · ~"+mm+" mm · "+els.length+" elements";
+ $("sdElCount").textContent=els.length;
+ $("sdElList").innerHTML=els.map(function(e,i){
+  return '<div class="sd-el '+(i===sel?'active':'')+'" data-li="'+i+'"><span class="tag">'+NAMES[e.type]+'</span><span class="nm">'+esc(labelOf(e))+'</span><button class="del" data-del="'+i+'" aria-label="Delete element">🗑</button></div>';
+ }).join("");
+ renderProps();
+}
+function renderCanvasOnly(){ $("sdWrap").innerHTML=buildSVG(); }
+function refreshListLabels(){
+ var items=document.querySelectorAll("#sdElList .sd-el .nm");
+ items.forEach(function(n,i){ n.textContent=labelOf(els[i]); });
+}
+
+function fld(l,h){return "<label>"+l+"</label>"+h;}
+function rng(k,lbl,min,max,val,step){return fld(lbl+' <span class="sd-rv">'+val+'</span>','<input type="range" data-p="'+k+'" min="'+min+'" max="'+max+'" step="'+(step||1)+'" value="'+val+'">');}
+function fontSel(v){return fld("Font",'<select data-p="font">'+FONTS.map(function(f){return '<option value="'+esc(f[1])+'" '+(f[1]===v?'selected':'')+'>'+f[0]+'</option>';}).join("")+'</select>');}
+function boldChk(v){return '<label class="sd-check"><input type="checkbox" data-p="bold" '+(v?'checked':'')+'> Bold</label>';}
+
+function renderProps(){
+ var p=$("sdProps"), e=els[sel];
+ if(!e){p.innerHTML='<p class="sd-empty">Nothing selected yet. Click a part of the stamp or an item in the Elements list.</p>';return;}
+ var h='<p style="font-size:12px;color:var(--muted);margin-bottom:4px;font-weight:600">'+(e.type==="arcText"?"Curved text":e.type.charAt(0).toUpperCase()+e.type.slice(1))+'</p>';
+ switch(e.type){
+  case "ring":
+   h+=rng("rx","Width radius",40,245,e.rx)+rng("ry","Height radius",40,245,e.ry)+rng("sw","Thickness",1,14,e.sw)
+     +'<label class="sd-check"><input type="checkbox" data-p="dash" '+(e.dash?'checked':'')+'> Dashed</label>'; break;
+  case "rect":
+   h+=rng("w","Width",80,490,e.w)+rng("h","Height",60,490,e.h)+rng("corner","Corner radius",0,60,e.corner)+rng("sw","Thickness",1,14,e.sw); break;
+  case "arcText":
+   h+=fld("Text",'<input type="text" data-p="text" value="'+esc(e.text)+'" maxlength="70">')
+     +fld("Position",'<select data-p="side"><option value="top" '+(e.side==='top'?'selected':'')+'>Top curve</option><option value="bottom" '+(e.side==='bottom'?'selected':'')+'>Bottom curve</option></select>')
+     +rng("rx","Curve width",60,240,e.rx)+rng("ry","Curve height",60,240,e.ry)
+     +rng("fs","Font size",12,60,e.fs)+rng("sp","Letter spacing",0,12,e.sp,0.5)+fontSel(e.font)+boldChk(e.bold); break;
+  case "text":
+   h+=fld("Text",'<input type="text" data-p="text" value="'+esc(e.text)+'" maxlength="50">')
+     +rng("x","Horizontal ⟷",-200,200,e.x)+rng("y","Vertical ↕",-200,200,e.y)
+     +rng("fs","Font size",12,80,e.fs)+rng("sp","Letter spacing",0,12,e.sp,0.5)+fontSel(e.font)+boldChk(e.bold); break;
+  case "symbol":
+   h+=fld("Symbol",'<select data-p="char">'+SYMS.map(function(s){return '<option '+(s===e.char?'selected':'')+'>'+s+'</option>';}).join("")+'</select>')
+     +rng("x","Horizontal ⟷",-230,230,e.x)+rng("y","Vertical ↕",-230,230,e.y)+rng("fs","Size",12,90,e.fs); break;
+  case "line":
+   h+=rng("x","Horizontal ⟷",-200,200,e.x)+rng("y","Vertical ↕",-220,220,e.y)+rng("len","Length",30,480,e.len)+rng("sw","Thickness",1,10,e.sw)+rng("angle","Angle",0,180,e.angle); break;
+ }
+ h+='<div class="sd-row2" style="margin-top:14px"><button class="sd-btn" data-dup>Duplicate</button><button class="sd-btn" data-rm style="color:#c1121f">Delete</button></div>';
+ p.innerHTML=h;
+
+ p.querySelectorAll("[data-p]").forEach(function(inp){
+  var key=inp.dataset.p, ev=inp.type==="checkbox"?"change":"input";
+  inp.addEventListener(ev,function(){
+   var e2=els[sel]; if(!e2)return;
+   if(inp.type==="checkbox") e2[key]=inp.checked;
+   else if(inp.type==="range") e2[key]=parseFloat(inp.value);
+   else e2[key]=inp.value;
+   if(inp.type==="range"){
+    var rv=inp.previousElementSibling&&inp.previousElementSibling.querySelector(".sd-rv");
+    if(rv) rv.textContent=inp.value;
+   }
+   renderCanvasOnly();
+   if(inp.type!=="range") refreshListLabels();
+  });
+ });
+ p.querySelector("[data-dup]").addEventListener("click",function(){
+  els.splice(sel+1,0,JSON.parse(JSON.stringify(els[sel]))); sel=sel+1; render();
+ });
+ p.querySelector("[data-rm]").addEventListener("click",function(){ els.splice(sel,1); sel=-1; render(); });
+}
+
+/* interactions */
+$("sdWrap").addEventListener("click",function(ev){
+ var t=ev.target.closest("[data-i]");
+ if(t){ sel=+t.getAttribute("data-i"); render(); }
+});
+$("sdElList").addEventListener("click",function(ev){
+ var del=ev.target.closest("[data-del]");
+ if(del){ els.splice(+del.getAttribute("data-del"),1); if(sel>=els.length) sel=-1; render(); return; }
+ var it=ev.target.closest("[data-li]");
+ if(it){ sel=+it.getAttribute("data-li"); render(); }
+});
+document.querySelectorAll("[data-add]").forEach(function(b){
+ b.addEventListener("click",function(){ els.push(mk[b.dataset.add]()); sel=els.length-1; render(); });
+});
+document.querySelectorAll(".sd-swatch").forEach(function(b){
+ b.addEventListener("click",function(){
+  document.querySelectorAll(".sd-swatch").forEach(function(x){x.classList.remove("active");});
+  b.classList.add("active"); color=b.dataset.color; renderCanvasOnly();
+ });
+});
+$("sdMm").addEventListener("input",function(e){ mm=+e.target.value; $("sdMmVal").textContent=mm+" mm"; $("sdSizeTag").textContent=tplName+" · ~"+mm+" mm · "+els.length+" elements"; });
+$("sdInkFx").addEventListener("change",function(e){ inkFx=e.target.checked; renderCanvasOnly(); });
+
+/* templates grid with live thumbnails */
+$("sdTplGrid").innerHTML=TPL.map(function(t,i){
+ var save=els, ssel=sel, sfx=inkFx;
+ els=t.els(); sel=-1; inkFx=false;
+ var svg=buildSVG({texture:false,highlight:false});
+ els=save; sel=ssel; inkFx=sfx;
+ return '<button class="sd-tpl" data-tpl="'+i+'">'+svg+'<div>'+t.name+'</div></button>';
+}).join("");
+document.querySelectorAll("[data-tpl]").forEach(function(b){
+ b.addEventListener("click",function(){
+  var t=TPL[+b.dataset.tpl];
+  els=t.els(); tplName=t.name; sel=-1; render();
+  if(window.innerWidth>1050) window.scrollTo({top:0,behavior:"smooth"});
+ });
+});
+
+/* downloads (with new-tab fallback if browser blocks the download) */
+function dl(blob,name){
+ try{
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob); a.download=name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){URL.revokeObjectURL(a.href);},3000);
+ }catch(err){ window.open(URL.createObjectURL(blob),"_blank"); }
+}
+$("sdDlSvg").addEventListener("click",function(){
+ dl(new Blob([buildSVG({texture:false,highlight:false})],{type:"image/svg+xml"}),"my-stamp-design.svg");
+});
+$("sdDlPng").addEventListener("click",function(){
+ var svg=buildSVG({highlight:false});
+ var img=new Image();
+ var url=URL.createObjectURL(new Blob([svg],{type:"image/svg+xml"}));
+ img.onload=function(){
+  var s=4, cv=document.createElement("canvas");
+  cv.width=500*s; cv.height=500*s;
+  var ctx=cv.getContext("2d");
+  ctx.fillStyle="#fff"; ctx.fillRect(0,0,cv.width,cv.height);
+  ctx.drawImage(img,0,0,cv.width,cv.height);
+  if(cv.toBlob){ cv.toBlob(function(b){ dl(b,"my-stamp-design.png"); },"image/png"); }
+  else { window.open(cv.toDataURL("image/png"),"_blank"); }
+  URL.revokeObjectURL(url);
+ };
+ img.src=url;
+});
+
+/* init */
+els=TPL[0].els(); tplName=TPL[0].name;
+render();
+})();
+</script>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-main">
+      <div>
+        <div class="footer-brand"><img class="logo" src="img/logo.svg" alt=""><b>Star eSevai</b></div>
+        <p>One-stop desk for government &amp; exam services in Coimbatore. Aadhaar, PAN, GST, certificates, licences, exam applications, designing &amp; printing &mdash; all under one roof.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="services.html">All Services</a>
+        <a href="about.html">About Us</a>
+        <a href="token.html">Get Token</a>
+        <a href="stamp-designer.html" class="active">Stamp Maker</a>
+        <a href="enquiry.html">Send Enquiry</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="refund-policy.html">Refund &amp; Cancellation</a>
+        <a href="shipping-policy.html">Shipping &amp; Delivery</a>
+        <a href="merchant-info.html">Merchant Info</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <p>&#128205; Nehru Nagar, Coimbatore &ndash; 641014, Tamil Nadu<br>
+        &#128222; <a href="tel:+919688885070" style="display:inline">96888 85070</a><br>
+        &#9993;&#65039; <a href="mailto:copy5070@gmail.com" style="display:inline">copy5070@gmail.com</a><br>
+        &#128337; Open Daily: 10:00 AM &ndash; 10:00 PM<br>
+        &#11088; <a href="https://share.google/ul3ip0rDlUTow7jsG" style="display:inline">Find us on Google</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Star eSevai (Star Consultancy) &middot; kovaihub.in &mdash; All rights reserved.</span>
+      <span>We are a private service facilitator and not affiliated with any government department.</span>
+    </div>
+  </div>
+</footer>
+<a class="wa-float" href="https://wa.me/919688885070" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4.2 28l6.3-2c2 1.1 4.2 1.7 6.5 1.7 6.6 0 12-5.3 12-11.9C29 8.3 22.6 3 16 3zm0 21.8c-2 0-4-.5-5.7-1.6l-.4-.2-3.7 1.2 1.2-3.6-.3-.4c-1.2-1.7-1.9-3.8-1.9-5.9C5.2 9.5 10 4.8 16 4.8s10.8 4.7 10.8 10.5S22 24.8 16 24.8zm5.4-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.4-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="search-head">
+      <input id="searchInput" placeholder="Search 30+ services… e.g. PAN, Aadhaar, GST, EB, Licence" autocomplete="off">
+      <button class="search-close" aria-label="Close" onclick="closeSearch()">&#10005;</button>
+    </div>
+    <div id="searchResults" class="search-results"><p class="search-hint">Type to search services and pages…</p></div>
+  </div>
+</div>
+<div class="mob-bar">
+  <a href="tel:+919688885070">&#128222; Call</a>
+  <a href="enquiry.html">&#128221; Enquiry</a>
+  <a class="mb-wa" href="https://wa.me/919688885070">&#128172; WhatsApp</a>
+</div>
+<script>
+document.querySelectorAll('.main-nav a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.main-nav').classList.remove('open');});});
+var SEARCH_INDEX = [{"t": "Stamp Maker — Design Your Rubber Stamp", "d": "Free online stamp designer with 10 templates, live preview and instant download.", "c": "Printing & Design", "i": "🔖", "k": "stamp seal rubber muthirai design maker round oval notary", "u": "stamp-designer.html"}, {"t": "Aadhaar Services", "d": "Aadhaar enrolment, demographic update, mobile linking and download support.", "c": "Identity & Cards", "i": "🪪", "k": "aadhar adhar uid update enrolment biometric mobile link", "u": "services.html?q=Aadhaar+Services"}, {"t": "PAN Card", "d": "New PAN, duplicate, corrections and reprints via NSDL / UTIITSL.", "c": "Identity & Cards", "i": "💳", "k": "pancard nsdl utiitsl income tax correction duplicate", "u": "services.html?q=PAN+Card"}, {"t": "ABHA Health Card", "d": "Ayushman Bharat Health Account (ABHA) creation and download.", "c": "Identity & Cards", "i": "🏥", "k": "ayushman bharat health abha", "u": "services.html?q=ABHA+Health+Card"}, {"t": "e-Shram Card", "d": "e-SHRAM registration for unorganised-sector workers.", "c": "Identity & Cards", "i": "👷", "k": "eshram shram labour worker unorganised", "u": "services.html?q=e-Shram+Card"}, {"t": "Insurance Cards", "d": "Insurance card application and renewal assistance.", "c": "Identity & Cards", "i": "🛡️", "k": "insurance policy renewal", "u": "services.html?q=Insurance+Cards"}, {"t": "Birth Certificate", "d": "New birth certificate, corrections and extracts.", "c": "Certificates", "i": "👶", "k": "birth pirappu correction extract", "u": "services.html?q=Birth+Certificate"}, {"t": "Death Certificate", "d": "Death certificate application and certified extracts.", "c": "Certificates", "i": "🕊️", "k": "death extract", "u": "services.html?q=Death+Certificate"}, {"t": "Community Certificate", "d": "Caste / community certificate application support.", "c": "Certificates", "i": "👪", "k": "caste community jaathi jathi", "u": "services.html?q=Community+Certificate"}, {"t": "Income Certificate", "d": "Income certificate for scholarships and welfare schemes.", "c": "Certificates", "i": "💰", "k": "income varumanam scholarship scheme", "u": "services.html?q=Income+Certificate"}, {"t": "OBC Certificate", "d": "OBC non-creamy layer certificate assistance.", "c": "Certificates", "i": "📜", "k": "obc non creamy layer", "u": "services.html?q=OBC+Certificate"}, {"t": "Legal Heir Certificate", "d": "Legal heir certificate consulting and application.", "c": "Certificates", "i": "⚖️", "k": "legal heir varisu succession", "u": "services.html?q=Legal+Heir+Certificate"}, {"t": "Life Certificate", "d": "Jeevan Pramaan digital life certificate for pensioners.", "c": "Certificates", "i": "❤️", "k": "jeevan pramaan pension pensioner life", "u": "services.html?q=Life+Certificate"}, {"t": "General Certificates", "d": "Domicile, residence, nativity and other certificates.", "c": "Certificates", "i": "📄", "k": "domicile residence nativity certificate", "u": "services.html?q=General+Certificates"}, {"t": "Lost Marksheet", "d": "Duplicate mark sheets and degree certificates.", "c": "Certificates", "i": "🎓", "k": "marksheet mark sheet duplicate degree lost", "u": "services.html?q=Lost+Marksheet"}, {"t": "GST Services", "d": "GST registration, amendments and return filing help.", "c": "Business & Tax", "i": "🧾", "k": "gst tax return filing registration amendment", "u": "services.html?q=GST+Services"}, {"t": "FSSAI Food Licence", "d": "Food business registration and licence renewal.", "c": "Business & Tax", "i": "🍔", "k": "fssai food license hotel shop business", "u": "services.html?q=FSSAI+Food+Licence"}, {"t": "EPFO Claims", "d": "EPF withdrawal, transfer and KYC update assistance.", "c": "Business & Tax", "i": "🏦", "k": "epf pf provident fund withdrawal transfer uan kyc", "u": "services.html?q=EPFO+Claims"}, {"t": "Firm / Company Registration", "d": "Business and proprietorship registration consulting.", "c": "Business & Tax", "i": "🏢", "k": "company firm business registration msme udyam proprietorship", "u": "services.html?q=Firm+/+Company+Registration"}, {"t": "Farmer Registration", "d": "Farmer registration and government scheme enrolment.", "c": "Business & Tax", "i": "🌾", "k": "farmer uzhavar agriculture kisan scheme", "u": "services.html?q=Farmer+Registration"}, {"t": "Patta / Chitta", "d": "Patta application, transfer and status tracking.", "c": "Land & Utilities", "i": "🗺️", "k": "patta chitta land document survey transfer", "u": "services.html?q=Patta+/+Chitta"}, {"t": "TNEB / TANGEDCO", "d": "New electricity connection and name change applications.", "c": "Land & Utilities", "i": "⚡", "k": "tneb eb electricity current tangedco connection name change", "u": "services.html?q=TNEB+/+TANGEDCO"}, {"t": "Ration Card", "d": "New ration card, member addition and address change.", "c": "Land & Utilities", "i": "🍚", "k": "ration smart card pds member addition address", "u": "services.html?q=Ration+Card"}, {"t": "Driving Licence", "d": "Learner licence, new DL, renewal and duplicates.", "c": "Vehicle & Police", "i": "🚗", "k": "driving license dl ll learner renewal rto", "u": "services.html?q=Driving+Licence"}, {"t": "RC Book Services", "d": "RC transfer, duplicate, hypothecation add / remove.", "c": "Vehicle & Police", "i": "📘", "k": "rc book vehicle transfer duplicate hypothecation rto", "u": "services.html?q=RC+Book+Services"}, {"t": "Police Verification", "d": "Police verification certificate and PCC support.", "c": "Vehicle & Police", "i": "👮", "k": "police pcc clearance verification", "u": "services.html?q=Police+Verification"}, {"t": "TNPSC & Govt Exams", "d": "Online applications for TNPSC and all government exams.", "c": "Exams & Online", "i": "📝", "k": "tnpsc exam government job group apply hall ticket", "u": "services.html?q=TNPSC+%26+Govt+Exams"}, {"t": "NEET / JEE Exams", "d": "NEET, JEE and other student exam application help.", "c": "Exams & Online", "i": "🩺", "k": "neet jee exam student application hall ticket", "u": "services.html?q=NEET+/+JEE+Exams"}, {"t": "All Government Online Services", "d": "Every e-District, central and state online service.", "c": "Exams & Online", "i": "🌐", "k": "edistrict e-district online egov all services", "u": "services.html?q=All+Government+Online+Services"}, {"t": "Designing & Printing", "d": "Forms, ID cards, flyers — professional design and print.", "c": "Printing & Design", "i": "🖨️", "k": "print printing design xerox copy flyer id card form", "u": "services.html?q=Designing+%26+Printing"}, {"t": "Binding & Lamination", "d": "Calico binding, spiral binding and lamination.", "c": "Printing & Design", "i": "📚", "k": "binding spiral calico lamination", "u": "services.html?q=Binding+%26+Lamination"}, {"t": "Send Enquiry", "d": "Request a callback — we reply with checklist and price", "c": "Page", "i": "📝", "k": "enquiry form lead contact callback", "u": "enquiry.html"}, {"t": "Get Token Online", "d": "Generate your queue token before you visit", "c": "Page", "i": "🎟️", "k": "token queue number", "u": "token.html"}, {"t": "Contact Us", "d": "Phone, WhatsApp, email, address and timings", "c": "Page", "i": "📞", "k": "phone address map location timing hours", "u": "contact.html"}, {"t": "About Star eSevai", "d": "Who we are and what we do", "c": "Page", "i": "ℹ️", "k": "about star consultancy kovaihub", "u": "about.html"}, {"t": "Refund & Cancellation Policy", "d": "Cancellation rules and refund timelines", "c": "Page", "i": "💸", "k": "refund cancel return money back", "u": "refund-policy.html"}, {"t": "Privacy Policy", "d": "How we protect your data", "c": "Page", "i": "🔒", "k": "privacy data", "u": "privacy-policy.html"}, {"t": "Terms & Conditions", "d": "Rules for using our services", "c": "Page", "i": "📋", "k": "terms conditions rules", "u": "terms-and-conditions.html"}, {"t": "Shipping & Delivery Policy", "d": "Document delivery and courier details", "c": "Page", "i": "📦", "k": "shipping delivery courier", "u": "shipping-policy.html"}];
+function openSearch(){
+  var o = document.getElementById('searchOverlay');
+  o.classList.add('open');
+  setTimeout(function(){ document.getElementById('searchInput').focus(); }, 60);
+}
+function closeSearch(){ document.getElementById('searchOverlay').classList.remove('open'); }
+document.getElementById('searchOverlay').addEventListener('click', function(e){ if (e.target === this) closeSearch(); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeSearch(); });
+document.getElementById('searchInput').addEventListener('input', function(){
+  var q = this.value.toLowerCase().trim();
+  var box = document.getElementById('searchResults');
+  if (!q) { box.innerHTML = '<p class="search-hint">Type to search services and pages…</p>'; return; }
+  var tokens = q.split(/\s+/);
+  var hits = SEARCH_INDEX.filter(function(it){
+    var hay = (it.t + ' ' + it.d + ' ' + it.c + ' ' + (it.k||'')).toLowerCase();
+    return tokens.every(function(t){ return hay.indexOf(t) > -1; });
+  }).slice(0, 12);
+  if (!hits.length) {
+    box.innerHTML = '<p class="search-hint">No match found. Try another word, or <a href="enquiry.html">send an enquiry</a> — we handle all government online services.</p>';
+    return;
+  }
+  box.innerHTML = hits.map(function(it){
+    return '<a class="sr-item" href="' + it.u + '"><span class="sr-ico">' + it.i + '</span><span><b>' + it.t + '</b><span>' + it.d + '</span></span></a>';
+  }).join('');
+});
+</script>
+</body>
+</html>
