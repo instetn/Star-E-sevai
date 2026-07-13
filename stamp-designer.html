@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Online Rubber Stamp Design & Making","provider":{"@type":"LocalBusiness","name":"Star eSevai (Star Consultancy)","url":"https://www.kovaihub.in/","telephone":"+91-96888-85070","address":{"@type":"PostalAddress","addressLocality":"Coimbatore","postalCode":"641014","addressRegion":"Tamil Nadu","addressCountry":"IN"}},"areaServed":["Coimbatore","Tamil Nadu","India"],"description":"Design your own rubber stamp online with live preview and order for delivery in Coimbatore."}</script>
 <style>
 /* ============ Stamp Designer (scoped: sd-) ============ */
@@ -123,7 +124,7 @@
     <span class="kicker">Free Online Tool</span>
     <h1>Design Your Own Rubber Stamp</h1>
     <p>Choose a template, click any part of the stamp to edit it, and download your design instantly. We manufacture and deliver your stamp anywhere in Coimbatore &amp; Tamil Nadu.</p>
-    <div class="badges"><span>✔ 10 Ready Templates</span><span>✔ Live Preview</span><span>✔ Free PNG &amp; SVG Download</span><span>✔ Same-day Making*</span></div>
+    <div class="badges"><span>✔ 10 Ready Templates</span><span>✔ Live Preview</span><span>✔ Hi-Res PNG + SVG — just ₹350</span><span>✔ Same-day Making*</span></div>
   </div>
 </section>
 
@@ -158,10 +159,16 @@
       <div class="sd-size-tag" id="sdSizeTag"></div>
       <div class="sd-dl-row">
         <button class="sd-btn" id="sdDlSvg">⬇ Download SVG</button>
-        <button class="sd-btn primary" id="sdDlPng">⬇ Download PNG</button>
+        <button class="sd-btn primary" id="sdDlPng">🔒 Pay ₹350 &amp; Download PNG</button>
+      </div>
+      <div class="sd-dl-row" id="sdPaidMsg" style="display:none">
+        <div style="background:#eef9f0;border:1px solid #cdeed6;border-radius:10px;padding:10px 14px;font-size:13px;text-align:center;width:100%">
+          ✅ Payment received! Downloads unlocked. Payment ID: <b id="sdPayId"></b><br>
+          <span style="color:var(--muted)">Save this ID — share it on WhatsApp with your design for stamp making.</span>
+        </div>
       </div>
       <div class="sd-order">
-        <b>Want it as a real stamp?</b> Download your design and send it to us on
+        <b>Want it as a real stamp?</b> Pay ₹350, download your design, and send it to us on
         <a href="https://wa.me/919688885070?text=Hi%2C%20I%20designed%20a%20stamp%20on%20kovaihub.in%20—%20please%20share%20the%20price." target="_blank" rel="noopener"><b>WhatsApp 96888 85070</b></a>
         — we'll confirm the price and make it the same day.*
       </div>
@@ -434,6 +441,39 @@ document.querySelectorAll("[data-tpl]").forEach(function(b){
  });
 });
 
+/* ==== Razorpay ₹350 paywall ==== */
+var RZP_KEY="RAZORPAY_KEY_ID_HERE";           /* your public Key ID (rzp_live_...) */
+var PRICE_PAISE=35000;                        /* ₹350 */
+var paid = sessionStorage.getItem("sdPaid")==="1";
+var payId = sessionStorage.getItem("sdPayId")||"";
+
+function markPaid(id){
+ paid=true; payId=id||payId;
+ try{ sessionStorage.setItem("sdPaid","1"); sessionStorage.setItem("sdPayId",payId);}catch(e){}
+ $("sdDlPng").textContent="⬇ Download PNG (Hi-Res)";
+ var m=$("sdPaidMsg"); if(m){ m.style.display="flex"; $("sdPayId").textContent=payId; }
+ /* update WhatsApp CTA with payment id */
+ var wa=document.querySelector(".sd-order a");
+ if(wa) wa.href="https://wa.me/919688885070?text="+encodeURIComponent("Hi, I paid for my stamp design on kovaihub.in. Payment ID: "+payId+". Sending my design file now.");
+}
+if(paid) setTimeout(function(){ markPaid(payId); },0);
+
+function openCheckout(onSuccess){
+ if(typeof Razorpay==="undefined"){ alert("Payment system loading… please try again in 2 seconds."); return; }
+ var rzp=new Razorpay({
+  key: RZP_KEY,
+  amount: PRICE_PAISE,
+  currency: "INR",
+  name: "Star eSevai",
+  description: "Custom Stamp Design — File Download",
+  image: "https://www.kovaihub.in/img/logo.svg",
+  theme: {color:"#0b1f4b"},
+  handler: function(res){ markPaid(res.razorpay_payment_id); if(onSuccess) onSuccess(); }
+ });
+ rzp.on("payment.failed",function(res){ alert("Payment failed: "+(res.error&&res.error.description||"Please try again.")); });
+ rzp.open();
+}
+
 /* downloads (with new-tab fallback if browser blocks the download) */
 function dl(blob,name){
  try{
@@ -443,10 +483,10 @@ function dl(blob,name){
   setTimeout(function(){URL.revokeObjectURL(a.href);},3000);
  }catch(err){ window.open(URL.createObjectURL(blob),"_blank"); }
 }
-$("sdDlSvg").addEventListener("click",function(){
+function doSvgDownload(){
  dl(new Blob([buildSVG({texture:false,highlight:false})],{type:"image/svg+xml"}),"my-stamp-design.svg");
-});
-$("sdDlPng").addEventListener("click",function(){
+}
+function doPngDownload(){
  var svg=buildSVG({highlight:false});
  var img=new Image();
  var url=URL.createObjectURL(new Blob([svg],{type:"image/svg+xml"}));
@@ -461,6 +501,14 @@ $("sdDlPng").addEventListener("click",function(){
   URL.revokeObjectURL(url);
  };
  img.src=url;
+}
+$("sdDlSvg").addEventListener("click",function(){
+ if(!paid){ openCheckout(doSvgDownload); return; }
+ doSvgDownload();
+});
+$("sdDlPng").addEventListener("click",function(){
+ if(!paid){ openCheckout(doPngDownload); return; }
+ doPngDownload();
 });
 
 /* init */
